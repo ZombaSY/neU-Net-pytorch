@@ -67,7 +67,7 @@ def main():
     os.environ["CUDA_VISIBLE_DEVICES"] = args.CUDA_VISIBLE_DEVICES
 
     if args.wandb:
-        wandb.login(key='your_WandB_key')
+        wandb.login(key='80296a7d33e608908061cf4d997958c1e2e86b44')
         wandb.init(project='{}'.format(args.project_name), config=args, name=now_time,
                    settings=wandb.Settings(start_method="fork"))
 
