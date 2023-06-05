@@ -116,8 +116,10 @@ def remove_center_padding(img):
         target_size = (605, 700)
     elif img.shape[-1] == 1024:
         target_size = (960, 999)
+    elif img.shape[-1] == 1344:
+        target_size = (896, 1344)
     else:
-        raise ValueError('Input shape should be involved in [608, 704, 1024]')
+        raise ValueError('Input shape should be involved in [608, 704, 1024, 1344]')
 
     assert target_size[0] <= in_h and target_size[1] <= in_w, 'target_size should be smaller than input_size'
 

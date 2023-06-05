@@ -13,7 +13,7 @@
   CUDA_VISIBLE_DEVICES: '3',
 
   ### Train Parameters
-  model_name: 'UNet2P',
+  model_name: 'DCSAU_UNet',
   dataloader: 'Image2Image_zero_pad',
   num_class: 2,
   criterion: 'DiceBCE',

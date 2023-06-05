@@ -4,11 +4,11 @@
   cuda: true,
   pin_memory: true,
   wandb: false,
-  worker: 2,
-  CUDA_VISIBLE_DEVICES: '0',
+  worker: 1,
+  CUDA_VISIBLE_DEVICES: '1',
 
   ### Train Parameters
-  model_name: 'neUNet',
+  model_name: 'UNet',
   inference_mode: 'segmentation',
   task: 'segmentation',
   inference_level: 100,
@@ -17,9 +17,9 @@
   criterion: 'DiceBCE',
   input_space: 'RGB',
   input_channel: 3,
-  input_size: [608, 608],  # DRIVE:608, STARE:704, CHASEDB1:1024
+  input_size: [1344, 1344],  # DRIVE:608, STARE:704, CHASEDB1:1024, HRF: 1344
 
-  model_path: 'pretrained/neUNet_DRIVE.pt',
-  val_x_path: '/path/to/your/dataset/val/input',
-  val_y_path: '/path/to/your/dataset/val/label',
+  model_path: 'model_checkpoints/2023-06-01 020034/UNet-Epoch-3155-f1_score-0.8132992084157957.pt',
+  val_x_path: '/home/work/ssy_data/public/HRF/val/input',
+  val_y_path: '/home/work/ssy_data/public/HRF/val/label',
 }
