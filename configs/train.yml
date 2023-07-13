@@ -10,10 +10,10 @@
   saved_model_directory: 'model_checkpoints',
   train_fold: 1,
   project_name: 'U_Net_modernize',
-  CUDA_VISIBLE_DEVICES: '3',
+  CUDA_VISIBLE_DEVICES: '2',
 
   ### Train Parameters
-  model_name: 'DCSAU_UNet',
+  model_name: 'neUNet_ab02',
   dataloader: 'Image2Image_zero_pad',
   num_class: 2,
   criterion: 'DiceBCE',

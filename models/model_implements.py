@@ -11,6 +11,10 @@ from models.backbones import ConvUNeXt as ConvUNeXt_parts
 from models.backbones import R2UNet as R2UNet_parts
 from models.backbones import FRUNet as FRUNet_parts
 from models.backbones import neUNet as neUNet_parts
+from models.backbones import neUNet_ab07 as neUNet_parts_ab07
+from models.backbones import neUNet_ab08 as neUNet_parts_ab08
+from models.backbones import neUNet_ab09 as neUNet_parts_ab09
+from models.backbones import neUNet_ab10 as neUNet_parts_ab10
 
 
 class UNet(nn.Module):
@@ -163,6 +167,70 @@ class neUNet(nn.Module):
         super(neUNet, self).__init__()
         self.neunet = neUNet_parts.neUNet(in_channels, n_classes, base_c,
                                           depths=depths, kernel_size=kernel_size)
+
+    def forward(self, x):
+        return self.neunet(x)
+
+
+# AG to attention
+class neUNet_ab07(nn.Module):
+    def __init__(self,
+                 in_channels=3,
+                 n_classes=1,
+                 depths=[3, 3, 9, 3],
+                 base_c=64,
+                 kernel_size=3):
+        super(neUNet_ab07, self).__init__()
+        self.neunet = neUNet_parts_ab07.neUNet_ab07(in_channels, n_classes, base_c,
+                                                    depths=depths, kernel_size=kernel_size)
+
+    def forward(self, x):
+        return self.neunet(x)
+
+
+# down-conv to residual
+class neUNet_ab08(nn.Module):
+    def __init__(self,
+                 in_channels=3,
+                 n_classes=1,
+                 depths=[3, 3, 9, 3],
+                 base_c=64,
+                 kernel_size=3):
+        super(neUNet_ab08, self).__init__()
+        self.neunet = neUNet_parts_ab08.neUNet_ab08(in_channels, n_classes, base_c,
+                                                    depths=depths, kernel_size=kernel_size)
+
+    def forward(self, x):
+        return self.neunet(x)
+
+
+# w/o deep supervision
+class neUNet_ab09(nn.Module):
+    def __init__(self,
+                 in_channels=3,
+                 n_classes=1,
+                 depths=[3, 3, 9, 3],
+                 base_c=64,
+                 kernel_size=3):
+        super(neUNet_ab09, self).__init__()
+        self.neunet = neUNet_parts_ab09.neUNet_ab09(in_channels, n_classes, base_c,
+                                                    depths=depths, kernel_size=kernel_size)
+
+    def forward(self, x):
+        return self.neunet(x)
+
+
+# removing bridge
+class neUNet_ab10(nn.Module):
+    def __init__(self,
+                 in_channels=3,
+                 n_classes=1,
+                 depths=[3, 3, 9, 3],
+                 base_c=64,
+                 kernel_size=3):
+        super(neUNet_ab10, self).__init__()
+        self.neunet = neUNet_parts_ab10.neUNet_ab10(in_channels, n_classes, base_c,
+                                                    depths=depths, kernel_size=kernel_size)
 
     def forward(self, x):
         return self.neunet(x)

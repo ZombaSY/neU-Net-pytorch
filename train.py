@@ -251,6 +251,26 @@ class Trainer_seg:
             model = model_implements.FRUNet(n_classes=1, in_channels=self.args.input_channel)
         elif model_name == 'neUNet':
             model = model_implements.neUNet(n_classes=1, in_channels=self.args.input_channel)
+        elif model_name == 'neUNet_ab01':
+            model = model_implements.neUNet(n_classes=1, in_channels=self.args.input_channel, base_c=64, depths=[2, 2, 6, 2])
+        elif model_name == 'neUNet_ab02':
+            model = model_implements.neUNet(n_classes=1, in_channels=self.args.input_channel, base_c=48, depths=[3, 3, 9, 3])
+        elif model_name == 'neUNet_ab03':
+            model = model_implements.neUNet(n_classes=1, in_channels=self.args.input_channel, base_c=64, depths=[1, 1, 1, 1])
+        elif model_name == 'neUNet_ab04':
+            model = model_implements.neUNet(n_classes=1, in_channels=self.args.input_channel, base_c=32, depths=[3, 3, 9, 3])
+        elif model_name == 'neUNet_ab05':
+            model = model_implements.neUNet(n_classes=1, in_channels=self.args.input_channel, base_c=16, depths=[3, 3, 9, 3])
+        elif model_name == 'neUNet_ab06':
+            model = model_implements.neUNet(n_classes=1, in_channels=self.args.input_channel, kernel_size=7)
+        elif model_name == 'neUNet_ab07':
+            model = model_implements.neUNet_ab07(n_classes=1, in_channels=self.args.input_channel)
+        elif model_name == 'neUNet_ab08':
+            model = model_implements.neUNet_ab08(n_classes=1, in_channels=self.args.input_channel)
+        elif model_name == 'neUNet_ab09':
+            model = model_implements.neUNet_ab09(n_classes=1, in_channels=self.args.input_channel)
+        elif model_name == 'neUNet_ab10':
+            model = model_implements.neUNet_ab10(n_classes=1, in_channels=self.args.input_channel)
         else:
             raise Exception('No model named', model_name)
 
